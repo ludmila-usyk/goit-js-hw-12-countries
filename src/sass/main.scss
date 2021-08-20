@@ -1,7 +1,23 @@
-/*
- * Главный файл стилей.
- * Все паршалы подключаются сюда.
- */
+// body {
+//   background-image: url(../images/map.jpg);
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 
-// Стили для файла с примером HTML-фрагмента
-@import './example';
+ul,
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
