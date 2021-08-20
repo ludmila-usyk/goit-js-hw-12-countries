@@ -65,7 +65,7 @@ const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
   container: document.querySelector('.container'),
-  more: document.querySelector('#more')
+  // more: document.querySelector('#more')
 }
 
 const hendlerSubmit = (e) => {
@@ -90,4 +90,4 @@ function renderCollection (arr) {
   arr.forEach(el => createItem(el))
 }
 
-refs.form.addEventListener('submit', hendlerSubmit)
+refs.form.addEventListener('submit', hendlerSubmit);
