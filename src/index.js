@@ -68,6 +68,7 @@ const refs = {
   // more: document.querySelector('#more')
 }
 
+//посылает запрос и обрабатывает ответ
 const hendlerSubmit = (e) => {
   e.preventDefault()
   const value = refs.input.value
@@ -77,6 +78,7 @@ const hendlerSubmit = (e) => {
   .catch(err => console.log(err))
 }
 
+//создает елемент интерфейса
 function createItem ({strDrinkThumb, strDrink}) {
   const article = `<article>
     <img src='${strDrinkThumb}' alt='${strDrink}'/>
@@ -86,6 +88,7 @@ function createItem ({strDrinkThumb, strDrink}) {
 refs.container.insertAdjacentHTML('beforeend', article)
 }
 
+//рендерит на экран
 function renderCollection (arr) {
   arr.forEach(el => createItem(el))
 }
