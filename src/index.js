@@ -1,4 +1,5 @@
 import './sass/main.scss';
+import axios from 'axios';
 
 // import { alert, info, success, error } from '../node_modules/@pnotify/core/dist/PNotify.js';
 // import '@pnotify/core/dist/BrightTheme.css';
@@ -55,12 +56,6 @@ import './sass/main.scss';
 // www.thecocktaildb.com/api/json/v1/1/filter.php?g=Cocktail_glass
 // www.thecocktaildb.com/api/json/v1/1/filter.php?g=Champagne_flute
 
-// List the categories, glasses, ingredients or alcoholic filters
-// www.thecocktaildb.com/api/json/v1/1/list.php?c=list
-// www.thecocktaildb.com/api/json/v1/1/list.php?g=list
-// www.thecocktaildb.com/api/json/v1/1/list.php?i=list
-// www.thecocktaildb.com/api/json/v1/1/list.php?a=list
-
 const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('#search'),
@@ -68,21 +63,40 @@ const refs = {
   // more: document.querySelector('#more')
 }
 
-//посылает запрос и обрабатывает ответ
+// //посылает запрос и обрабатывает ответ
+// const hendlerSubmit = (e) => {
+//   e.preventDefault()
+//   const value = refs.input.value
+// //  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+//   .then(response => response.json())
+//   .then(result => renderCollection(result.drinks))
+//   .catch(err => console.log(err))
+// }
+
 const hendlerSubmit = (e) => {
   e.preventDefault()
+  // innerHTML - очистить разметку
+  // refs.container.innerHTML = '';
   const value = refs.input.value
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
-  .then(response => response.json())
-  .then(result => renderCollection(result.drinks))
+  axios.get(`https:www.thecocktaildb.com/api/json/v1/1/search.php?s=${value}`)
+  .then(result => renderCollection(result.data.drinks))
   .catch(err => console.log(err))
 }
 
+
 //создает елемент интерфейса
-function createItem ({strDrinkThumb, strDrink}) {
+function createItem ({strDrinkThumb, strDrink, strAlcoholic, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5}) {
   const article = `<article>
     <img src='${strDrinkThumb}' alt='${strDrink}'/>
     <p>${strDrink}</p>
+    <h3 class="alco">${strAlcoholic}</h3>
+    <ul>
+      <li>${strIngredient1}</li>
+      <li>${strIngredient2}</li>
+      <li>${strIngredient3}</li>
+      <li>${strIngredient4}</li>
+      <li>${strIngredient5}</li>
+    </ul>
   </article>
 `
 refs.container.insertAdjacentHTML('beforeend', article)
