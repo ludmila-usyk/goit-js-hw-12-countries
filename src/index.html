@@ -14,8 +14,21 @@
     <link href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
-    <include src="./partials/example.html"></include>
+    <!-- Так добавляются фрагменты в главные HTML-файлы страниц.
+    <include src="./partials/example.html"></include> -->
+
+
+    <div id='root'>
+      <form id='form'>
+        <input type='text' id='search' name='coctailName'/>
+        <button type='submit'>Search</button>
+      </form>
+      <div class='container'></div>
+      <button id='more'>
+        Load more
+      </button>
+    </div>
+
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
     <script src="./index.js"></script>
