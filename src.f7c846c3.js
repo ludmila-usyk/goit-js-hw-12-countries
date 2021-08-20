@@ -3,4 +3,4 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");const e={form:document.querySelector("#form"),input:document.querySelector("#search"),container:document.querySelector(".container")},t=t=>{t.preventDefault();const n=e.input.value;fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${n}`).then(e=>e.json()).then(e=>c(e.drinks)).catch(e=>console.log(e))};function n({strDrinkThumb:t,strDrink:n}){const c=`<article>\n    <img src='${t}' alt='${n}'/>\n    <p>${n}</p>\n  </article>\n`;e.container.insertAdjacentHTML("beforeend",c)}function c(e){e.forEach(e=>n(e))}e.form.addEventListener("submit",t);
 },{"./sass/main.scss":"clu1"}]},{},["Focm"], null)
-//# sourceMappingURL=/goit-js-hw-12-countries/src.d0ff897d.js.map
+//# sourceMappingURL=/goit-js-hw-12-countries/src.f7c846c3.js.map
