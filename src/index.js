@@ -29,7 +29,7 @@ const searchCountry = (e) => {
   .catch(err => console.log(err))
 }
 
-refs.form.addEventListener('submit', searchCountry)
+refs.form.addEventListener('input', searchCountry)
 
 
 // //создает елемент интерфейса
@@ -54,4 +54,4 @@ function renderCountry (arr) {
   arr.forEach(el => createCountry(el))
 }
 
-refs.countries.addEventListener('submit', renderCountry);
+refs.countries.addEventListener('input', renderCountry);
