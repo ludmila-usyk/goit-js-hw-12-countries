@@ -8,11 +8,6 @@ import debounce from 'lodash.debounce';
 //     text: 'Notice me, senpai!'
 //   });
 
-//debounce(test, 2000);
-//   function test () {
-//   console.log('object')
-// };
-
 const refs = {
   form: document.querySelector('#form'),
   input: document.querySelector('.input-js'),
@@ -25,11 +20,11 @@ const searchCountry = (e) => {
   const name = refs.input.value
   fetch(`https://restcountries.eu/rest/v2/name/${name}`)
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => renderCountry(data.name))
   .catch(err => console.log(err))
 }
 
-refs.form.addEventListener('input', searchCountry)
+refs.form.addEventListener('input', debounce(searchCountry, 1000))
 
 
 // //создает елемент интерфейса
@@ -47,7 +42,6 @@ function createCountry ({flag, name, capital, population, numericCode, region}) 
 `
 refs.countries.insertAdjacentHTML('beforeend', article)
 }
-
 
 // //рендерит на экран
 function renderCountry (arr) {
