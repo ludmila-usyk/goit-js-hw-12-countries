@@ -7,6 +7,7 @@ const refs = getRefs();
 // 1//посылает запрос и обрабатывает ответ
 const searchCountry = (e) => {
     e.preventDefault()
+    refs.countries.innerHTML = '';
     const name = refs.input.value
     fetch(`https://restcountries.eu/rest/v2/name/${name}`)
     .then(response => response.json())

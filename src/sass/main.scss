@@ -1,9 +1,9 @@
-p,
 h1,
 h2,
 h3,
 h4,
-ul {
+ul,
+p {
     padding: 0;
     margin: 0;
     color: azure;
@@ -68,6 +68,6 @@ img {
 .country-name {
     padding-bottom: 20px;
 }
-p {
-    padding-bottom: 20px;
-}
+// p {
+//     margin: 0;
+// }
