@@ -4,6 +4,7 @@ const refs = getRefs();
   // 2//создает елемент интерфейса
   export default function createCountry ({flag, name, capital, population, region, languages, }) {
     const listLanguages = languages.map(language => `<li>${language.name}</li>`).join('');
+   
     const article = `<article>
         <h2 class="country-name">${name}</h2>
         <div class="card">
